@@ -4,7 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SPR Audio — Sound System & Audio Production</title>
+<title>SPR Audio | Sewa Sound System Profesional Sukabumi untuk Berbagai Acara</title>
+<meta name="description" content="SPR Audio menyediakan sewa sound system profesional di Sukabumi untuk pernikahan, hajatan, pengajian, konser, acara sekolah, komunitas, dan acara perusahaan. Tersedia paket lengkap, kru, Sound Engineer, instalasi, dan estimasi biaya. Melayani Sukabumi dan berbagai wilayah di Indonesia.">
+<meta name="keywords" content="sewa sound system Sukabumi, rental sound system Sukabumi, sound system Sukabumi, sewa sound system Cisaat, sound system Cisaat, sewa audio Sukabumi, sound system hajatan Sukabumi, sound system pernikahan Sukabumi, sound system wedding Sukabumi, sound system konser Sukabumi, sewa speaker Sukabumi, jasa sound system Sukabumi, sound system profesional Indonesia">
+<meta name="author" content="SPR Audio">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="geo.region" content="ID-JB">
+<meta name="geo.placename" content="Sukabumi, Jawa Barat, Indonesia">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SPR Audio | Sewa Sound System Profesional Sukabumi">
+<meta property="og:description" content="Sewa sound system profesional untuk berbagai acara di Sukabumi. Paket lengkap dengan kru, Sound Engineer, instalasi, dan estimasi biaya.">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -887,6 +898,234 @@ section{
     box-shadow: 0 10px 30px rgba(125,182,214,0.2);
 }
 
+
+/* ================= LOKASI PREMIUM — SELARAS TEMA SPR AUDIO ================= */
+.location-section{
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(125,182,214,.08), transparent 28%),
+        radial-gradient(circle at 85% 75%, rgba(125,182,214,.05), transparent 30%),
+        var(--bg2);
+    border-top:1px solid var(--line);
+}
+.location-section::before{
+    content:"";
+    position:absolute; inset:0;
+    pointer-events:none;
+    opacity:.045;
+    background-image:linear-gradient(rgba(255,255,255,.55) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.55) 1px,transparent 1px);
+    background-size:42px 42px;
+    mask-image:linear-gradient(to bottom,transparent,black 18%,black 82%,transparent);
+}
+.location-section > *{position:relative;z-index:1;}
+.location-premium{
+    position:relative;
+    min-height:600px;
+    border-radius:30px;
+    overflow:hidden;
+    background:#0d0f12;
+    border:1px solid rgba(125,182,214,.22);
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.48),
+        inset 0 1px 0 rgba(255,255,255,.035);
+}
+.location-map-wrap{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    background:#0b0d10;
+}
+.location-map-wrap iframe{
+    position:absolute;
+    inset:0;
+    width:100%;height:100%;
+    border:0;
+    display:block;
+    filter:grayscale(.82) contrast(1.12) brightness(.78) saturate(.72);
+    transform:scale(1.02);
+}
+.location-map-wrap::after{
+    content:"";
+    position:absolute;inset:0;
+    pointer-events:none;
+    background:
+        linear-gradient(90deg, rgba(8,9,11,.98) 0%, rgba(8,9,11,.82) 34%, rgba(8,9,11,.18) 67%, rgba(8,9,11,.46) 100%),
+        linear-gradient(0deg, rgba(8,9,11,.92) 0%, transparent 42%),
+        radial-gradient(circle at 78% 38%, rgba(125,182,214,.12), transparent 30%);
+}
+.location-panel{
+    position:relative;
+    z-index:4;
+    width:min(530px,calc(100% - 60px));
+    margin:44px 0 0 44px;
+    padding:34px;
+    border-radius:24px;
+    background:linear-gradient(145deg,rgba(21,24,29,.92),rgba(8,9,11,.82));
+    border:1px solid rgba(255,255,255,.10);
+    backdrop-filter:blur(24px);
+    box-shadow:0 28px 80px rgba(0,0,0,.42);
+}
+.location-kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    color:var(--accent2);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+.location-kicker::before{
+    content:"";
+    width:8px;height:8px;border-radius:50%;
+    background:#a8d9ee;
+    box-shadow:0 0 0 5px rgba(168,217,238,.08),0 0 18px rgba(168,217,238,.72);
+}
+.location-panel h3{
+    font-family:"Space Grotesk";
+    font-size:clamp(30px,4vw,48px);
+    letter-spacing:-2px;
+    line-height:.98;
+    margin-bottom:18px;
+}
+.location-panel h3 span{color:#8fc8e4;}
+.location-panel p{
+    color:#9ca3ab;
+    font-size:14px;
+    line-height:1.8;
+    max-width:430px;
+}
+.location-divider{
+    height:1px;
+    background:linear-gradient(90deg,rgba(125,182,214,.45),rgba(255,255,255,.06),transparent);
+    margin:25px 0 18px;
+}
+.location-details{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:10px 13px;
+    align-items:start;
+    margin-bottom:25px;
+    color:#8f969f;
+    font-size:12px;
+    line-height:1.65;
+}
+.location-details strong{color:#dfe5e9;font-size:12px;}
+.location-detail-icon{
+    width:30px;height:30px;
+    border-radius:10px;
+    display:grid;place-items:center;
+    background:rgba(125,182,214,.10);
+    border:1px solid rgba(125,182,214,.17);
+    color:var(--accent2);
+}
+.location-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+.location-action{
+    min-height:48px;
+    padding:0 18px;
+    border-radius:12px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:800;
+    transition:.28s ease;
+}
+.location-action.primary{
+    color:#081015;
+    background:#e9f6fc;
+    box-shadow:0 10px 30px rgba(125,182,214,.16);
+}
+.location-action.secondary{
+    color:#dce1e5;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.035);
+}
+.location-action:hover{transform:translateY(-3px);}
+.location-action.primary:hover{background:#fff;box-shadow:0 16px 40px rgba(125,182,214,.24);}
+.location-action.secondary:hover{border-color:rgba(159,212,237,.5);background:rgba(159,212,237,.08);}
+.location-map-badge{
+    position:absolute;
+    z-index:4;
+    right:26px;
+    bottom:26px;
+    display:flex;
+    align-items:center;
+    gap:11px;
+    padding:12px 16px;
+    border-radius:14px;
+    background:rgba(13,15,18,.84);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.10);
+    color:#9ca3ab;
+    font-size:11px;
+}
+.location-map-badge b{color:#e8eef2;}
+.location-map-badge .map-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 16px var(--accent);
+}
+.location-corner{
+    position:absolute;
+    z-index:5;
+    right:-1px;top:-1px;
+    width:115px;height:115px;
+    border-left:1px solid rgba(125,182,214,.24);
+    border-bottom:1px solid rgba(125,182,214,.24);
+    border-bottom-left-radius:28px;
+    pointer-events:none;
+}
+.location-corner::after{
+    content:"SPR AUDIO";
+    position:absolute;
+    right:18px;top:18px;
+    color:rgba(159,212,237,.65);
+    font-size:8px;
+    letter-spacing:2px;
+    font-weight:800;
+}
+.location-note{
+    max-width:760px;
+    margin:24px auto 0;
+    text-align:center;
+    color:#737a83;
+    font-size:12px;
+    line-height:1.7;
+}
+@media(max-width:900px){
+    .location-premium{min-height:650px;}
+    .location-panel{margin:32px;width:min(540px,calc(100% - 64px));}
+}
+@media(max-width:600px){
+    .location-section{padding:90px 5vw;}
+    .location-premium{min-height:710px;border-radius:24px;}
+    .location-panel{
+        width:calc(100% - 28px);
+        margin:14px;
+        padding:26px 22px;
+        border-radius:20px;
+    }
+    .location-panel h3{font-size:34px;}
+    .location-map-wrap::after{
+        background:
+            linear-gradient(180deg,rgba(8,9,11,.92) 0%,rgba(8,9,11,.56) 46%,rgba(8,9,11,.9) 100%),
+            radial-gradient(circle at 50% 50%,rgba(125,182,214,.10),transparent 45%);
+    }
+    .location-actions{display:grid;grid-template-columns:1fr;}
+    .location-action{width:100%;}
+    .location-map-badge{right:14px;bottom:14px;}
+    .location-corner{width:80px;height:80px;}
+    .location-corner::after{display:none;}
+}
+
 /* ================= SOCIAL PROOF / MEDIA SECTION ================= */
 .social-section {
     padding: 80px 6vw;
@@ -1291,6 +1530,7 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
     <div class="nav-links">
         <a href="#paket">Paket</a>
         <a href="#portfolio">Portofolio</a>
+        <a href="#lokasi">Lokasi</a>
         <a href="#kalkulator">Kalkulator</a>
         <a href="#mitra">Mitra</a>
     </div>
@@ -1306,15 +1546,15 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
     <div class="hero-content reveal">
         <div class="eyebrow">
             <span class="live-dot"></span>
-            SEWA SOUND SYSTEM PROFESIONAL UNTUK ACARA ANDA.
+            SEWA SOUND SYSTEM PROFESIONAL DI SUKABUMI UNTUK BERBAGAI ACARA.
         </div>
         <h1>Suara membutuhkan <span>ketelitian.</span></h1>
         <p class="hero-description">
-            SPR Audio menyediakan persewaan sound system profesional lengkap dengan kru dan Sound Engineer berpengalaman untuk berbagai jenis acara.
+            SPR Audio menyediakan sewa sound system profesional di Sukabumi dengan kru dan Sound Engineer berpengalaman untuk berbagai acara. Kami melayani kebutuhan lokal hingga luar Sukabumi sesuai jangkauan dan kesepakatan.
         </p>
         <div class="hero-buttons">
             <a href="#paket" class="btn-primary">Lihat Paket Sound System</a>
-            <a href="https://www.instagram.com/spraudiosystem?igsh=MWVoc3o5YjJnbXFteA==" target="_blank" rel="noopener noreferrer" class="btn-secondary">Portofolio Instagram</a>
+            <a href="https://www.instagram.com/spraudiosystem?igsh=MWVoc3o5YjJnbXFteA==" target="_blank" rel="noopener noreferrer" class="btn-secondary">Lihat Portofolio Instagram</a>
         </div>
     </div>
 
@@ -1348,39 +1588,39 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
     <div class="package-grid reveal" id="packagesContainer"></div>
 </section>
 
-<!-- ================= PORTFOLIO ================= -->
+<!-- ================= PORTOFOLIO ================= -->
 <section class="portfolio-section" id="portfolio">
     <div class="section-head reveal">
         <div>
-            <div class="section-label">EVENT YANG KAMI TANGANI</div>
-            <h2>Menghidupkan<br>Setiap Momen.</h2>
+            <div class="section-label">ACARA YANG KAMI TANGANI</div>
+            <h2>Menjaga Kualitas Suara<br>di Setiap Momen.</h2>
         </div>
-        <p>Sistem kami dirancang dan diukur dengan presisi untuk memenuhi kebutuhan audio yang optimal di setiap jenis acara.</p>
+        <p>Sistem audio kami dirancang untuk membantu menghadirkan kualitas suara yang jelas dan optimal sesuai kebutuhan setiap jenis acara.</p>
     </div>
     <div class="portfolio-grid reveal">
         <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Wedding">
-            <div class="portfolio-caption">Wedding</div>
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Sewa sound system pernikahan profesional di Sukabumi">
+            <div class="portfolio-caption">Pernikahan</div>
         </div>
         <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1540039155732-6762334f5d23?auto=format&fit=crop&w=800&q=80" alt="Live Music">
-            <div class="portfolio-caption">Live Music</div>
+            <img src="https://images.unsplash.com/photo-1540039155732-6762334f5d23?auto=format&fit=crop&w=800&q=80" alt="Sewa sound system musik langsung dan konser di Sukabumi">
+            <div class="portfolio-caption">Musik Langsung</div>
         </div>
         <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" alt="Gathering">
-            <div class="portfolio-caption">Gathering</div>
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" alt="Sewa sound system acara kumpul dan komunitas di Sukabumi">
+            <div class="portfolio-caption">Acara Kumpul</div>
         </div>
         <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80" alt="Corporate">
-            <div class="portfolio-caption">Corporate Event</div>
+            <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80" alt="Sewa sound system acara perusahaan di Sukabumi">
+            <div class="portfolio-caption">Acara Perusahaan</div>
         </div>
         <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1533174000255-14f05b0d62d2?auto=format&fit=crop&w=800&q=80" alt="Outdoor Event">
-            <div class="portfolio-caption">Outdoor Event</div>
+            <img src="https://images.unsplash.com/photo-1533174000255-14f05b0d62d2?auto=format&fit=crop&w=800&q=80" alt="Sewa sound system acara luar ruangan di Sukabumi">
+            <div class="portfolio-caption">Acara Luar Ruangan</div>
         </div>
         <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=800&q=80" alt="Community Event">
-            <div class="portfolio-caption">Community Event</div>
+            <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=800&q=80" alt="Sewa sound system acara komunitas di Sukabumi">
+            <div class="portfolio-caption">Acara Komunitas</div>
         </div>
     </div>
 </section>
@@ -1543,6 +1783,58 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
             <p>Tim profesional kami siap membantu dan memastikan seluruh infrastruktur sistem berjalan mulus dari gladi resik hingga akhir acara.</p>
         </div>
     </div>
+</section>
+
+
+
+<!-- ================= LOKASI GOOGLE MAPS PREMIUM ================= -->
+<section class="location-section" id="lokasi">
+    <div class="section-head reveal">
+        <div>
+            <div class="section-label">LOKASI BASECAMP SPR AUDIO</div>
+            <h2>Datang ke lokasi,<br><span style="color:#8fc8e4;">kami siapkan suaranya.</span></h2>
+        </div>
+        <p>Basecamp SPR Audio berada di Sukabumi dan menjadi pusat persiapan sound system untuk berbagai kebutuhan acara di Sukabumi dan sekitarnya.</p>
+    </div>
+
+    <div class="location-premium reveal">
+        <div class="location-map-wrap">
+            <iframe
+                title="Lokasi Basecamp SPR Audio Sukabumi di Google Maps"
+                src="https://www.google.com/maps?q=Jl.%20Cagak%20Cibaraja%20No.7%2C%20Cimahi%2C%20Cisaat%2C%20Sukabumi&z=16&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="location-corner"></div>
+
+        <div class="location-panel">
+            <div class="location-kicker">Basecamp Resmi · Sukabumi</div>
+            <h3>SPR Audio<br><span>di Sukabumi.</span></h3>
+            <p>Kunjungi basecamp kami untuk konsultasi kebutuhan sound system, persiapan acara, atau mendapatkan akses navigasi langsung melalui Google Maps.</p>
+
+            <div class="location-divider"></div>
+
+            <div class="location-details">
+                <div class="location-detail-icon">⌖</div>
+                <div><strong>Jl. Cagak - Cibaraja No.7</strong><br>Cimahi, Cisaat, Kabupaten Sukabumi, Jawa Barat</div>
+            </div>
+
+            <div class="location-actions">
+                <a class="location-action primary" href="https://www.google.com/maps/search/?api=1&query=Jl.%20Cagak%20Cibaraja%20No.7%2C%20Cimahi%2C%20Cisaat%2C%20Sukabumi" target="_blank" rel="noopener noreferrer">Buka Google Maps ↗</a>
+                <a class="location-action secondary" href="https://www.google.com/maps/dir/?api=1&destination=Jl.%20Cagak%20Cibaraja%20No.7%2C%20Cimahi%2C%20Cisaat%2C%20Sukabumi" target="_blank" rel="noopener noreferrer">Petunjuk Arah</a>
+            </div>
+        </div>
+
+        <div class="location-map-badge">
+            <span class="map-dot"></span>
+            <span><b>Lokasi aktif</b> · Sukabumi, Jawa Barat</span>
+        </div>
+    </div>
+
+    <p class="location-note reveal">Peta menggunakan Google Maps agar Anda dapat langsung melihat lokasi dan menentukan rute menuju basecamp SPR Audio.</p>
 </section>
 
 <!-- ================= SOCIAL PROOF / MEDIA SECTION ================= -->
@@ -1813,13 +2105,14 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
 <footer id="footer">
     <div>
         <strong style="font-family: 'Space Grotesk'; font-size: 16px; color: var(--text);">SPR Audio</strong>
-        <span class="op-hours">Sound System & Audio Production</span>
+        <span class="op-hours">Sewa Sound System & Produksi Audio</span>
         <span class="op-hours" style="margin-top: 10px;">Basecamp: Jl. Cagak - Cibaraja No.7, Cimahi, Cisaat, Sukabumi</span>
     </div>
     <div class="footer-links">
         <a href="#paket">Paket Sewa</a>
         <a href="#portfolio">Portofolio</a>
         <a href="#kalkulator">Kalkulator</a>
+        <a href="#lokasi">Lokasi</a>
         <a href="#mitra">Mitra Kami</a>
     </div>
 </footer>
