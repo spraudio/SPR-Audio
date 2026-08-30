@@ -1647,6 +1647,49 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
     footer{ flex-direction:column; gap:20px; }
     .brand-logo img{ width:125px; }
 }
+
+/* =========================================================
+   SPR AUDIO — VIDEO PORTFOLIO CAROUSEL V2
+   ========================================================= */
+.spr-vp{position:relative;width:100%;margin-top:52px;display:flex;align-items:center;justify-content:center;}
+.spr-vp-stage{width:100%;display:flex;align-items:center;justify-content:center;gap:clamp(18px,3vw,42px);overflow:hidden;padding:24px 0 10px;}
+.spr-vp-main{position:relative;width:min(380px,38vw);aspect-ratio:9/16;flex:0 0 auto;overflow:hidden;border-radius:27px;background:#080808;box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.11);isolation:isolate;transform:translateZ(0);}
+.spr-vp-main video,.spr-vp-side video{width:100%;height:100%;display:block;object-fit:cover;background:#080808;}
+.spr-vp-side{position:relative;width:min(225px,22vw);aspect-ratio:9/16;flex:0 0 auto;padding:0;border:1px solid rgba(255,255,255,.12);overflow:hidden;border-radius:23px;background:#111;cursor:pointer;opacity:.42;filter:blur(5px) brightness(.62);transform:scale(.87);transition:opacity .45s ease,filter .45s ease,transform .45s cubic-bezier(.22,1,.36,1);}
+.spr-vp-side:hover{opacity:.72;filter:blur(2px) brightness(.76);transform:scale(.91);}
+.spr-vp-side video{pointer-events:none;}
+.spr-vp-shade{position:absolute;inset:0;z-index:2;background:linear-gradient(to bottom,transparent 48%,rgba(0,0,0,.88) 100%);pointer-events:none;}
+.spr-vp-info{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:78px 24px 22px;color:#fff;pointer-events:none;}
+.spr-vp-kicker{font-size:9px;color:#8fc8e4;font-weight:800;letter-spacing:.17em;text-transform:uppercase;margin-bottom:7px;}
+.spr-vp-title{font-size:clamp(16px,1.55vw,21px);font-weight:650;line-height:1.2;letter-spacing:-.02em;}
+.spr-vp-meta{display:flex;justify-content:space-between;gap:12px;margin-top:11px;font-size:9px;letter-spacing:.12em;opacity:.72;}
+.spr-vp-play{position:absolute;z-index:4;top:50%;left:50%;width:62px;height:62px;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.42);border-radius:50%;background:rgba(0,0,0,.34);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;cursor:pointer;transition:transform .3s ease,background .3s ease;}
+.spr-vp-play:hover{transform:translate(-50%,-50%) scale(1.08);background:rgba(0,0,0,.5);}
+.spr-vp-arrow{position:absolute;z-index:8;top:50%;width:52px;height:52px;margin-top:-26px;border:1px solid rgba(255,255,255,.16);border-radius:50%;background:rgba(16,18,22,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:21px;transition:transform .25s ease,background .25s ease,border-color .25s ease;}
+.spr-vp-arrow:hover{transform:scale(1.08);background:rgba(255,255,255,.94);color:#08090b;border-color:rgba(255,255,255,.8);}
+.spr-vp-prev{left:0}.spr-vp-next{right:0}
+.spr-vp-thumbs{display:flex;justify-content:center;gap:16px;margin-top:34px;overflow-x:auto;padding:4px 4px 10px;scrollbar-width:none;}
+.spr-vp-thumbs::-webkit-scrollbar{display:none;}
+.spr-vp-thumb{width:86px;flex:0 0 86px;background:transparent;border:0;color:#fff;text-align:left;padding:0;cursor:pointer;opacity:.62;transition:.3s ease;}
+.spr-vp-thumb:hover{opacity:1;transform:translateY(-2px);}
+.spr-vp-thumb.is-active{opacity:1;}
+.spr-vp-thumb-media{height:112px;border-radius:9px;overflow:hidden;border:1px solid rgba(255,255,255,.11);background:#111;position:relative;}
+.spr-vp-thumb.is-active .spr-vp-thumb-media{border-color:#7db6d6;box-shadow:0 0 0 2px rgba(125,182,214,.18);}
+.spr-vp-thumb-media img{width:100%;height:100%;display:block;object-fit:cover;filter:brightness(.7);transition:.3s;}
+.spr-vp-thumb.is-active img,.spr-vp-thumb:hover img{filter:brightness(.95);}
+.spr-vp-thumb-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.45);font-size:10px;}
+.spr-vp-thumb-no{margin-top:12px;font-size:10px;letter-spacing:.12em;color:#8c929b;}
+.spr-vp-thumb.is-active .spr-vp-thumb-no{color:#fff;}
+.spr-vp-thumb-name{margin-top:4px;font-size:10px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#d9dde2;}
+.spr-vp-archive{display:flex;align-items:center;justify-content:center;gap:11px;margin-top:17px;font-size:9px;letter-spacing:.18em;opacity:.55;}
+.spr-vp-archive i{display:block;width:52px;height:1px;background:currentColor;opacity:.55}.spr-vp-archive b{font-weight:500;font-variant-numeric:tabular-nums;}
+@media(max-width:900px){
+ .spr-vp-stage{gap:0}.spr-vp-side{display:none}.spr-vp-main{width:min(72vw,360px)}
+}
+@media(max-width:768px){
+ .spr-vp{margin-top:30px}.spr-vp-stage{padding:8px 0}.spr-vp-main{width:min(78vw,350px);border-radius:23px}.spr-vp-arrow{width:42px;height:42px;margin-top:-21px;font-size:17px}.spr-vp-prev{left:5px}.spr-vp-next{right:5px}.spr-vp-info{padding:68px 18px 18px}.spr-vp-play{width:54px;height:54px}.spr-vp-thumbs{justify-content:flex-start;gap:10px;margin-top:24px;padding-left:2px}.spr-vp-thumb{width:72px;flex-basis:72px}.spr-vp-thumb-media{height:94px}.spr-vp-thumb-name{font-size:9px}.spr-vp-archive{margin-top:13px;}
+}
+@media(prefers-reduced-motion:reduce){.spr-vp-side,.spr-vp-arrow,.spr-vp-play,.spr-vp-thumb{transition:none;}}
 </style>
 </head>
 
@@ -1729,40 +1772,39 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
     <div class="package-grid reveal" id="packagesContainer"></div>
 </section>
 
-<!-- ================= PORTOFOLIO ================= -->
+<!-- ================= PORTOFOLIO VIDEO ================= -->
 <section class="portfolio-section" id="portfolio">
     <div class="section-head reveal">
         <div>
             <div class="section-label">ACARA YANG KAMI TANGANI</div>
-            <h2>Menjaga Kualitas Suara<br>di Setiap Momen.</h2>
+            <h2>Dokumentasi Nyata.<br>Bukan Sekadar Janji.</h2>
         </div>
-        <p>Sistem audio kami dirancang untuk membantu menghadirkan kualitas suara yang jelas dan optimal sesuai kebutuhan setiap jenis acara.</p>
+        <p>Bukan sekadar menampilkan paket, kami menunjukkan dokumentasi event yang telah ditangani SPR Audio — dari wedding, acara sekolah, religi, olahraga hingga live event.</p>
     </div>
-    <div class="portfolio-grid reveal">
-        <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Sewa sound system pernikahan profesional di Sukabumi">
-            <div class="portfolio-caption">Pernikahan</div>
+
+    <div class="spr-vp reveal" id="sprVideoPortfolio">
+        <button class="spr-vp-arrow spr-vp-prev" type="button" aria-label="Video sebelumnya">&#8592;</button>
+        <div class="spr-vp-stage">
+            <button class="spr-vp-side spr-vp-left" type="button" aria-label="Video sebelumnya"><video muted playsinline preload="metadata"></video></button>
+            <div class="spr-vp-main">
+                <video id="sprVpMainVideo" muted playsinline preload="metadata"></video>
+                <div class="spr-vp-shade"></div>
+                <div class="spr-vp-info">
+                    <div class="spr-vp-kicker">SPR AUDIO • REAL EVENT</div>
+                    <div class="spr-vp-title" id="sprVpTitle">Malam Pergantian Tahun</div>
+                    <div class="spr-vp-meta"><span>SPR AUDIO</span><span id="sprVpCounter">01 / 15</span></div>
+                </div>
+                <button class="spr-vp-play" id="sprVpPlay" type="button" aria-label="Putar video">▶</button>
+            </div>
+            <button class="spr-vp-side spr-vp-right" type="button" aria-label="Video berikutnya"><video muted playsinline preload="metadata"></video></button>
         </div>
-        <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1540039155732-6762334f5d23?auto=format&fit=crop&w=800&q=80" alt="Sewa sound system musik langsung dan konser di Sukabumi">
-            <div class="portfolio-caption">Musik Langsung</div>
-        </div>
-        <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" alt="Sewa sound system acara kumpul dan komunitas di Sukabumi">
-            <div class="portfolio-caption">Acara Kumpul</div>
-        </div>
-        <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80" alt="Sewa sound system acara perusahaan di Sukabumi">
-            <div class="portfolio-caption">Acara Perusahaan</div>
-        </div>
-        <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1533174000255-14f05b0d62d2?auto=format&fit=crop&w=800&q=80" alt="Sewa sound system acara luar ruangan di Sukabumi">
-            <div class="portfolio-caption">Acara Luar Ruangan</div>
-        </div>
-        <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=800&q=80" alt="Sewa sound system acara komunitas di Sukabumi">
-            <div class="portfolio-caption">Acara Komunitas</div>
-        </div>
+        <button class="spr-vp-arrow spr-vp-next" type="button" aria-label="Video berikutnya">&#8594;</button>
+    </div>
+
+    <div class="spr-vp-thumbs reveal" id="sprVpThumbs" aria-label="Daftar video portfolio"></div>
+
+    <div class="spr-vp-archive reveal">
+        <span>PROJECT ARCHIVE</span><i></i><b id="sprVpPosition">01</b><span>/ 15</span>
     </div>
 </section>
 
@@ -2654,5 +2696,89 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
     });
 
 </script>
+
+<script>
+(() => {
+  const items = [
+    ["Malam Pergantian Tahun","https://res.cloudinary.com/wmbpbukz/video/upload/v1788066753/Malam_pergantian_tahun_soundsystem_eventsukabumi_audioengineer_livemusic.mp4"],
+    ["Milad MT Ibadurrohman","https://res.cloudinary.com/wmbpbukz/video/upload/v1788066869/Alhamdulilah_Acara_Milad_MT_Ibadurrohman_Berjalan_Dengan_LancarDan_Penuh_Keberkahan.Disupport_Ol.mp4"],
+    ["Bareng SPR Audio","https://res.cloudinary.com/wmbpbukz/video/upload/v1788066868/Bukan_cuma_kerja_tapi_nikmatin_momennya.Tawa_musik_dan_energi_panggung_Bareng_SPR_Audio.mp4"],
+    ["6th Sukabumi Koi","https://res.cloudinary.com/wmbpbukz/video/upload/v1788066864/Suara_yang_jernih_acara_pun_lancar_SPR_Audio_System_turut_berkontribusi_dalam_6th_Sukabumi_Ko.mp4"],
+    ["Behind The Event","https://res.cloudinary.com/wmbpbukz/video/upload/v1788066862/Suksenya_sebuah_event_bukan_hanya_tentang_apa_yang_terlihat_di_arena_tetapi_juga_tentangkerja_s.mp4"],
+    ["Bimtek Komdigi","https://res.cloudinary.com/wmbpbukz/video/upload/v1788066861/Bimtek_Komdigi_soundsystem_eventsukabumi_komdigi_audioengineer_huper.mp4"],
+    ["Haflah Khotmil Qur'an & Tabligh Akbar","https://res.cloudinary.com/wmbpbukz/video/upload/v1788066850/Haflah_Khotmil_Quran_Tabligh_AkbarPondok_Pesantren_Salafi_Modern_Almadinah_sukabumiBroadcast.mp4"],
+    ["Momen Besar, Kualitas Terbaik","https://res.cloudinary.com/wmbpbukz/video/upload/v1788066847/Momen_besar_layak_didukung_dengan_kualitas_terbaik.SPR_Audio_Event_Equipment_hadir_memberikand.mp4"],
+    ["MAN 2 Kota Sukabumi","https://res.cloudinary.com/wmbpbukz/video/upload/v1788066762/as_a_reminder_man2kotasukabumi_videoangkatan_soundsystem_lighting_eventsukabumi.mp4"],
+    ["HAUL Pondok Pesantren An-Nidzom","https://res.cloudinary.com/wmbpbukz/video/upload/v1788066754/Acara_HAUL_At_Pondok_Pesantren_An-Nidzom_Sukabumisupport_by_-_SPR_Audio_System_pesantren_annidz.mp4"],
+    ["Jaraido Championship 2025","https://res.cloudinary.com/wmbpbukz/video/upload/v1788066741/Event_Pencak_Silat_Jaraido_Championship_2025_soundsystem_eventsukabumi_pencaksilat_olahraga.mp4"],
+    ["Full Band Wedding","https://res.cloudinary.com/wmbpbukz/video/upload/v1788066741/Full_Band_Wedding_soundsystem_huper_eventsukabumi_behringer_mixerdigital_weddingsukabumi.mp4"],
+    ["Kick Off DBA — SPR Audio","https://res.cloudinary.com/wmbpbukz/video/upload/v1788066731/Kick_Off_DBA_SPRAudio_SoundSystem_JobSound_EventReels_AudioEngineerLiveSoundEventIndonesia.mp4"],
+    ["Acara Lancar, Klien Bahagia","https://res.cloudinary.com/wmbpbukz/video/upload/v1788066731/Acara_lancar_sukses_klien_bahagia_itu_prioritas_nkami.Terimakasih_atas_kepercayaan_nya_menggun.mp4"],
+    ["IPAD 11 — Islamic Pasim Art Day","https://res.cloudinary.com/wmbpbukz/video/upload/v1788066727/IPAD_11_Islamic_Pasim_Art_Day_soundsystem_eventsukabumi_audioengineer_pasim_behringer.mp4"]
+  ];
+
+  function init(){
+    const root=document.getElementById('sprVideoPortfolio');
+    if(!root || root.dataset.ready) return;
+    root.dataset.ready='1';
+    const main=root.querySelector('#sprVpMainVideo');
+    const left=root.querySelector('.spr-vp-left video');
+    const right=root.querySelector('.spr-vp-right video');
+    const title=root.querySelector('#sprVpTitle');
+    const counter=root.querySelector('#sprVpCounter');
+    const pos=root.querySelector('#sprVpPosition');
+    const play=root.querySelector('#sprVpPlay');
+    const prev=root.querySelector('.spr-vp-prev');
+    const next=root.querySelector('.spr-vp-next');
+    const thumbs=root.querySelector('#sprVpThumbs');
+    let index=0, timer=null, touchX=0;
+    const pad=n=>String(n).padStart(2,'0');
+    const at=n=>(n+items.length)%items.length;
+    const poster=url=>url.replace('/video/upload/','/video/upload/so_0/').replace(/\.mp4(?:\?.*)?$/i,'.jpg');
+    const preview=(el,i)=>{if(!el)return; el.poster=poster(items[at(i)][1]); el.src=items[at(i)][1]; el.load();};
+
+    thumbs.innerHTML=items.map((item,i)=>`<button class="spr-vp-thumb" type="button" data-index="${i}" aria-label="Buka ${item[0]}"><div class="spr-vp-thumb-media"><img src="${poster(item[1])}" alt="${item[0]}" loading="lazy"><span class="spr-vp-thumb-play">▶</span></div><div class="spr-vp-thumb-no">${pad(i+1)}</div><div class="spr-vp-thumb-name">${item[0]}</div></button>`).join('');
+    const thumbEls=[...thumbs.querySelectorAll('.spr-vp-thumb')];
+
+    const render=(i,auto=false)=>{
+      index=at(i);
+      const item=items[index];
+      main.pause();
+      main.poster=poster(item[1]);
+      main.src=item[1];
+      main.load();
+      title.textContent=item[0];
+      counter.textContent=`${pad(index+1)} / ${pad(items.length)}`;
+      pos.textContent=pad(index+1);
+      preview(left,index-1);
+      preview(right,index+1);
+      thumbEls.forEach((el,n)=>el.classList.toggle('is-active',n===index));
+      thumbEls[index]?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+      play.textContent='▶';
+      if(auto) main.play().then(()=>play.textContent='Ⅱ').catch(()=>{});
+    };
+    const restart=()=>{clearTimeout(timer);timer=setTimeout(()=>go(1,true),9000);};
+    const go=(step,auto=true)=>{render(index+step,auto);restart();};
+
+    prev.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();go(-1,true);});
+    next.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();go(1,true);});
+    root.querySelector('.spr-vp-left').addEventListener('click',e=>{e.preventDefault();go(-1,true);});
+    root.querySelector('.spr-vp-right').addEventListener('click',e=>{e.preventDefault();go(1,true);});
+    thumbEls.forEach((el,n)=>el.addEventListener('click',()=>{render(n,true);restart();}));
+    play.addEventListener('click',e=>{e.preventDefault();if(main.paused){main.play().then(()=>play.textContent='Ⅱ').catch(()=>{});}else{main.pause();play.textContent='▶';}});
+    main.addEventListener('play',()=>play.textContent='Ⅱ');
+    main.addEventListener('pause',()=>play.textContent='▶');
+    main.addEventListener('ended',()=>go(1,true));
+    main.addEventListener('touchstart',e=>{touchX=e.changedTouches[0].screenX;},{passive:true});
+    main.addEventListener('touchend',e=>{const d=e.changedTouches[0].screenX-touchX;if(Math.abs(d)>50)go(d<0?1:-1,true);},{passive:true});
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){restart();}else{clearTimeout(timer);main.pause();}}),{threshold:.25});
+    io.observe(root);
+    render(0,false);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+
 </body>
 </html>
+
