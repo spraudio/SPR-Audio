@@ -1633,6 +1633,23 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
 }
 
 @media(max-width:600px){
+    /* FAQ mobile: pastikan seluruh 4 langkah prosedur dapat terbuka tanpa terpotong */
+    .accordion-item.active .accordion-content{
+        max-height:1200px;
+    }
+    .rules-list{
+        grid-template-columns:1fr;
+        gap:12px;
+    }
+    .rule-card{
+        width:100%;
+        min-width:0;
+    }
+    .rule-card h5{
+        line-height:1.45;
+        overflow-wrap:anywhere;
+    }
+
     .navbar{ padding:0 5vw; }
     .signin{ display:none; }
     .btn-small{ padding:10px 14px; }
@@ -2117,6 +2134,19 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
                 </div>
                 <div class="accordion-content">
                     <p>Peralatan kami dilengkapi stabilizer dan pengaman internal untuk mencegah lonjakan arus. Jika pemadaman berasal dari PLN pusat, disarankan lokasi acara menyediakan Genset cadangan agar audio tetap beroperasi lancar tanpa terputus.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <div class="accordion-header-text">
+                        <div class="accordion-icon-tag">☔</div>
+                        <span>Bagaimana kalau terjadi hujan?</span>
+                    </div>
+                    <span class="accordion-arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <p>Jika hujan terjadi sebelum acara dimulai, kami akan memastikan area dan perlengkapan terlindungi sebelum sistem digunakan. Jika hujan turun di tengah acara, tim akan mengutamakan keselamatan kru dan keamanan perangkat dengan mengamankan atau menghentikan penggunaan sistem sementara bila kondisi tidak memungkinkan. Jika hujan terjadi menjelang akhir acara, sistem tetap diamankan sampai kondisi memungkinkan untuk proses pembongkaran. Untuk acara outdoor, penyewa wajib menyiapkan area atau tenda yang memadai untuk melindungi seluruh peralatan dari hujan.</p>
                 </div>
             </div>
         </div>
