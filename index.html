@@ -1277,70 +1277,212 @@ section{
     margin-bottom: 5px;
 }
 
-/* ================= MITRA / JOBS (COMPACT ACCORDION) ================= */
-.jobs{ background:#0b0d10; }
 
-.mitra-head-compact {
-    align-items: center;
-}
-
-.mitra-head-compact h2 {
-    max-width: 600px;
-    margin-bottom: 0;
-}
-
-.mitra-expanded-content {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease;
-}
-
-.mitra-expanded-content.open {
-    max-height: 2500px; 
-    opacity: 1;
-    margin-top: 40px;
-}
-
-.job-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-.job-card{
+/* ================= GOOGLE REVIEWS — DUAL INFINITE MARQUEE ================= */
+.google-reviews-section{
     position:relative;
-    padding:28px;
-    min-height:290px;
-    background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
-    border:1px solid var(--line);
-    border-radius:var(--radius);
     overflow:hidden;
-    transition:.4s ease;
-    cursor: pointer;
+    padding:125px 0 135px;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(125,182,214,.08), transparent 28%),
+        radial-gradient(circle at 85% 80%, rgba(125,182,214,.05), transparent 30%),
+        var(--bg2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
 }
-.job-card:before{
-    content:""; position:absolute; width:200px; height:200px; top:-100px; right:-100px;
-    background:#7db6d6; opacity:.08; border-radius:50%; filter:blur(50px); transition: 0.4s ease;
+.google-reviews-head{
+    width:min(1100px,88vw);
+    margin:0 auto 48px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:30px;
 }
-.job-card:hover:before { opacity: 0.25; width: 250px; height: 250px; }
-.job-card:hover{ transform:translateY(-8px); border-color:rgba(150,210,235,.3); box-shadow: 0 30px 80px rgba(0,0,0,.25); }
-.job-top{ display:flex; justify-content:space-between; margin-bottom:30px; }
-.status{ padding:7px 10px; border-radius:30px; font-size:10px; color:#9bd6ef; background:rgba(126,190,220,.09); border:1px solid rgba(126,190,220,.14); text-transform:uppercase; letter-spacing:1px; }
-.status.status-soon{ color:#f0c987; background:rgba(240,201,135,.09); border:1px solid rgba(240,201,135,.18); }
-.job-type{ color:#686f77; font-size:11px; }
-.job-card h3{ font-family:"Space Grotesk"; font-size:23px; margin-bottom:12px; letter-spacing:-.7px; }
-.job-card p{ color:#818791; font-size:13px; line-height:1.65; max-width:360px; }
-.job-bottom{ position:absolute; left:28px; right:28px; bottom:25px; display:flex; justify-content:flex-end; align-items:center; }
-.view-job{ color:#9bcfe6; font-size:12px; font-weight:700; text-decoration:none; transition:.25s; }
-.job-card:hover .view-job{ color:white; transform: translateX(4px); }
-
-/* CARA KERJA (Inside Mitra Expand) */
-.process-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-.process{ padding:35px 30px; border:1px solid var(--line); border-radius:20px; background:#0d0f12; transition: 0.3s ease; }
-.process:hover { border-color: rgba(125,182,214,.3); transform: translateY(-5px); }
-.number{ font-family:"Space Grotesk"; color:#59616a; font-size:12px; margin-bottom:55px; }
-.process h3{ font-family:"Space Grotesk"; font-size:23px; margin-bottom:14px; }
-.process p{ color:#7d848c; font-size:13px; line-height:1.7; }
+.google-reviews-head h2{
+    font-family:"Space Grotesk";
+    font-size:clamp(38px,5vw,66px);
+    line-height:.96;
+    letter-spacing:-3px;
+    max-width:700px;
+}
+.google-reviews-head h2 span{color:#8fc8e4;}
+.google-reviews-meta{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    white-space:nowrap;
+    color:#9ca3ab;
+    font-size:13px;
+}
+.google-rating{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    color:#fff;
+    font-weight:800;
+}
+.google-rating-stars{
+    color:#9ed5ef;
+    letter-spacing:1px;
+    font-size:13px;
+}
+.google-reviews-link{
+    color:#dce8ed;
+    text-decoration:none;
+    border:1px solid rgba(255,255,255,.13);
+    background:rgba(255,255,255,.025);
+    border-radius:10px;
+    padding:10px 14px;
+    font-size:11px;
+    font-weight:800;
+    transition:.25s ease;
+}
+.google-reviews-link:hover{
+    border-color:rgba(159,212,237,.5);
+    background:rgba(159,212,237,.07);
+    transform:translateY(-2px);
+}
+.reviews-marquee{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    padding:9px 0;
+    mask-image:linear-gradient(90deg,transparent 0%,black 7%,black 93%,transparent 100%);
+    -webkit-mask-image:linear-gradient(90deg,transparent 0%,black 7%,black 93%,transparent 100%);
+}
+.reviews-marquee + .reviews-marquee{margin-top:2px;}
+.reviews-track{
+    display:flex;
+    width:max-content;
+    gap:16px;
+    will-change:transform;
+}
+.reviews-marquee.forward .reviews-track{
+    animation:reviewsRight 85s linear infinite;
+}
+.reviews-marquee.reverse .reviews-track{
+    animation:reviewsLeft 85s linear infinite;
+}
+.reviews-marquee:hover .reviews-track,
+.reviews-marquee:focus-within .reviews-track{
+    animation-play-state:paused;
+}
+@keyframes reviewsLeft{
+    from{transform:translate3d(0,0,0);}
+    to{transform:translate3d(-50%,0,0);}
+}
+@keyframes reviewsRight{
+    from{transform:translate3d(-50%,0,0);}
+    to{transform:translate3d(0,0,0);}
+}
+.google-review-card{
+    width:clamp(275px,30vw,370px);
+    min-height:178px;
+    padding:22px;
+    flex:0 0 auto;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+    box-shadow:0 18px 55px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.035);
+    transition:border-color .3s ease,transform .3s ease;
+}
+.google-review-card:hover{
+    border-color:rgba(125,182,214,.35);
+    transform:translateY(-3px);
+}
+.google-review-top{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:15px;
+}
+.google-review-avatar{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    flex:0 0 auto;
+    overflow:hidden;
+    background:rgba(125,182,214,.12);
+    border:1px solid rgba(125,182,214,.2);
+    color:#bfe6f5;
+    font-size:12px;
+    font-weight:800;
+}
+.google-review-avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.google-review-author{
+    min-width:0;
+    flex:1;
+}
+.google-review-author strong{
+    display:block;
+    color:#f0f3f5;
+    font-size:13px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.google-review-date{
+    display:block;
+    margin-top:3px;
+    color:#686f78;
+    font-size:10px;
+}
+.google-review-stars{
+    color:#9ed5ef;
+    font-size:11px;
+    letter-spacing:1px;
+}
+.google-review-text{
+    color:#aeb5bc;
+    font-size:12.5px;
+    line-height:1.7;
+    display:-webkit-box;
+    -webkit-line-clamp:4;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+.google-reviews-status{
+    width:min(1100px,88vw);
+    margin:26px auto 0;
+    color:#68717a;
+    font-size:11px;
+    text-align:center;
+}
+.google-reviews-status[data-error="true"]{
+    color:#a3abb3;
+}
+@media(max-width:700px){
+    .google-reviews-section{padding:90px 0 100px;}
+    .google-reviews-head{
+        width:90vw;
+        display:block;
+        margin-bottom:34px;
+    }
+    .google-reviews-head h2{font-size:40px;}
+    .google-reviews-meta{
+        margin-top:22px;
+        flex-wrap:wrap;
+        white-space:normal;
+    }
+    .google-review-card{
+        width:290px;
+        min-height:170px;
+        padding:19px;
+    }
+    .reviews-marquee{
+        mask-image:linear-gradient(90deg,transparent 0%,black 4%,black 96%,transparent 100%);
+        -webkit-mask-image:linear-gradient(90deg,transparent 0%,black 4%,black 96%,transparent 100%);
+    }
+}
+@media(prefers-reduced-motion:reduce){
+    .reviews-track{animation-play-state:paused !important;}
+}
 
 /* ================= MODALS GLOBAL ================= */
 .modal-overlay {
@@ -1489,8 +1631,7 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
     .hero-image{ width:100%; opacity:.45; mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%); }
     .audio-player{ left:6vw; right:6vw; width:auto; }
     .wa-float{ bottom:20px; right:16px; width:48px; height:48px; }
-    .job-grid, .process-grid, .calc-grid, .rules-list, .portfolio-grid, .why-grid { grid-template-columns:1fr; }
-    .mitra-head-compact { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .calc-grid, .rules-list, .portfolio-grid, .why-grid { grid-template-columns:1fr; }
 }
 
 @media(max-width:600px){
@@ -1532,7 +1673,7 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
         <a href="#portfolio">Portofolio</a>
         <a href="#lokasi">Lokasi</a>
         <a href="#kalkulator">Kalkulator</a>
-        <a href="#mitra">Mitra</a>
+        <a href="#ulasan">Ulasan</a>
     </div>
     <div class="nav-actions">
         <a class="signin" href="https://wa.me/6285722718266" target="_blank" rel="noopener noreferrer">Kontak</a>
@@ -1786,7 +1927,6 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
 </section>
 
 
-
 <!-- ================= LOKASI GOOGLE MAPS PREMIUM ================= -->
 <section class="location-section" id="lokasi">
     <div class="section-head reveal">
@@ -1940,83 +2080,6 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
     </div>
 </div>
 
-<!-- ================= MITRA / JOBS (COMPACT ACCORDION) ================= -->
-<section class="jobs" id="mitra">
-    <div class="section-head reveal mitra-head-compact">
-        <div class="mitra-text">
-            <div class="section-label">JADI MITRA SPR AUDIO</div>
-            <h2>Gabung bersama SPR Audio sebagai sound engineer, mixing engineer, atau kru profesional.</h2>
-        </div>
-        <button class="btn-secondary" onclick="toggleMitraDetails()" id="btnMitraToggle" style="white-space: nowrap;">LIHAT PELUANG MITRA →</button>
-    </div>
-
-    <div id="mitraExpandedContent" class="mitra-expanded-content">
-        <div class="job-grid">
-            <article class="job-card" onclick="openApplyModal('Mixing Engineer')">
-                <div class="job-top">
-                    <span class="status status-soon">Segera Dibuka</span>
-                    <span class="job-type">Remote</span>
-                </div>
-                <h3>Mixing Engineer</h3>
-                <p>Mitra mixing engineer berpengalaman untuk proyek audio pascaproduksi profesional.</p>
-                <div class="job-bottom">
-                    <span class="view-job">Info Lebih Lanjut →</span>
-                </div>
-            </article>
-
-            <article class="job-card" onclick="openApplyModal('Sound Engineer')">
-                <div class="job-top">
-                    <span class="status status-soon">Segera Dibuka</span>
-                    <span class="job-type">Lapangan</span>
-                </div>
-                <h3>Sound Engineer</h3>
-                <p>Mitra sound engineer yang memahami tata suara panggung dan operasional FOH lapangan.</p>
-                <div class="job-bottom">
-                    <span class="view-job">Info Lebih Lanjut →</span>
-                </div>
-            </article>
-
-            <article class="job-card" onclick="openApplyModal('Kru Profesional')">
-                <div class="job-top">
-                    <span class="status status-soon">Segera Dibuka</span>
-                    <span class="job-type">Proyek</span>
-                </div>
-                <h3>Kru Profesional</h3>
-                <p>Mitra kru teknis dan instalasi untuk membantu loading dan setup sistem di venue.</p>
-                <div class="job-bottom">
-                    <span class="view-job">Info Lebih Lanjut →</span>
-                </div>
-            </article>
-        </div>
-
-        <div class="section-head" style="margin-top: 80px;">
-            <div>
-                <div class="section-label">Cara Kerja Mitra</div>
-                <h2>Sederhana & Fokus.</h2>
-            </div>
-            <p>Tanpa proses rumit. Temukan proyek, kirim portofolio, dan bekerja sama dengan nyaman.</p>
-        </div>
-
-        <div class="process-grid">
-            <div class="process">
-                <div class="number">01 — TEMUKAN</div>
-                <h3>Cari Proyek</h3>
-                <p>Jelajahi proyek acara atau audio aktif dan temukan yang sesuai dengan keahlianmu.</p>
-            </div>
-            <div class="process">
-                <div class="number">02 — LAMAR</div>
-                <h3>Kirim Karya</h3>
-                <p>Kirimkan portofolio, pengalaman, serta penawaran kolaborasimu.</p>
-            </div>
-            <div class="process">
-                <div class="number">03 — KARYA</div>
-                <h3>Mulai Berkarya</h3>
-                <p>Kandidat terpilih akan dihubungi langsung untuk mendiskusikan rincian dan teknis proyek.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- ================= MODALS ================= -->
 
 <!-- 1. MODAL DETAIL PAKET -->
@@ -2101,6 +2164,33 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
     </div>
 </div>
 
+
+<!-- ================= GOOGLE REVIEWS ================= -->
+<section class="google-reviews-section" id="ulasan">
+    <div class="google-reviews-head reveal">
+        <div>
+            <div class="section-label">GOOGLE REVIEWS</div>
+            <h2>Dipercaya oleh mereka yang pernah <span>merasakan langsung.</span></h2>
+        </div>
+        <div class="google-reviews-meta">
+            <div class="google-rating">
+                <span class="google-rating-stars">★★★★★</span>
+                <span id="googleRating">5.0</span>
+            </div>
+            <span id="googleReviewCount">44 ulasan Google</span>
+            <a class="google-reviews-link"
+               href="https://maps.app.goo.gl/eqgig1CKmmUJqDSu7?g_st=ac"
+               target="_blank" rel="noopener noreferrer">Lihat di Google ↗</a>
+        </div>
+    </div>
+
+    <div class="reviews-marquee forward" aria-label="Ulasan pelanggan SPR Audio"><div class="reviews-track" id="reviewsTrackTop"><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">MA</div><div class="google-review-author"><strong>Muhammad Aji Al Batawi</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Enakeuuun Soundna... cocok untuk semua kegiatan.... langganan tiap tahuun..</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">IS</div><div class="google-review-author"><strong>Ihsan Sujai</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">mantap pokok nya buat sound syestem dari SPR audio</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">AG</div><div class="google-review-author"><strong>Anggita Gita</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Pelayanan ramah banget, kualitas terbaik, harga terbaik, REKOMENDED</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">FU</div><div class="google-review-author"><strong>Farihul Umam</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Jasa sewa sound sistem dengan kualitas terbaik di Sukabumi, yang siap di berbagai event✨</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">HM</div><div class="google-review-author"><strong>Hilman muhammad</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Sound system terdebes, cocok buat segala acara dan even</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">IS</div><div class="google-review-author"><strong>Isep Suryana</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Ngga akan nyesel top banget soundnya</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">KM</div><div class="google-review-author"><strong>Kmobi Mesin</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Mengesankan,mantab..</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">MZ</div><div class="google-review-author"><strong>M. Zikri Febian. K</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Solusi untuk event kalian<br>Vendor terbaik dan terpercaya</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">FA</div><div class="google-review-author"><strong>Fikri Alka</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Puas dengan pelayanannya, ramah dan sopan</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">MJ</div><div class="google-review-author"><strong>Muhamad Japri</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Rekomendasi untuk segala event</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">SN</div><div class="google-review-author"><strong>Sii nn</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">rekomendasi sound jernih untuk event apapun👍</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">AA</div><div class="google-review-author"><strong>Alpi Abdillah</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Mampu menunjang berbagai macam acara</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">Q_</div><div class="google-review-author"><strong>qnoy _ot</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Mantapp pisan SPR audio patennn</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">AR</div><div class="google-review-author"><strong>ari ramdani</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Rekomendasi bagi yang cari profesional audio system</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">RP</div><div class="google-review-author"><strong>Rian Pascal</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Solusi untuk yang menginginkan sound system clarity</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">AS</div><div class="google-review-author"><strong>Andriansyah Saputra</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Solusi untuk mencari kualitas audio profesional</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">MA</div><div class="google-review-author"><strong>Muhammad Aji Al Batawi</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Enakeuuun Soundna... cocok untuk semua kegiatan.... langganan tiap tahuun..</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">IS</div><div class="google-review-author"><strong>Ihsan Sujai</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">mantap pokok nya buat sound syestem dari SPR audio</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">AG</div><div class="google-review-author"><strong>Anggita Gita</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Pelayanan ramah banget, kualitas terbaik, harga terbaik, REKOMENDED</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">FU</div><div class="google-review-author"><strong>Farihul Umam</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Jasa sewa sound sistem dengan kualitas terbaik di Sukabumi, yang siap di berbagai event✨</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">HM</div><div class="google-review-author"><strong>Hilman muhammad</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Sound system terdebes, cocok buat segala acara dan even</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">IS</div><div class="google-review-author"><strong>Isep Suryana</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Ngga akan nyesel top banget soundnya</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">KM</div><div class="google-review-author"><strong>Kmobi Mesin</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Mengesankan,mantab..</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">MZ</div><div class="google-review-author"><strong>M. Zikri Febian. K</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Solusi untuk event kalian<br>Vendor terbaik dan terpercaya</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">FA</div><div class="google-review-author"><strong>Fikri Alka</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Puas dengan pelayanannya, ramah dan sopan</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">MJ</div><div class="google-review-author"><strong>Muhamad Japri</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Rekomendasi untuk segala event</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">SN</div><div class="google-review-author"><strong>Sii nn</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">rekomendasi sound jernih untuk event apapun👍</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">AA</div><div class="google-review-author"><strong>Alpi Abdillah</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Mampu menunjang berbagai macam acara</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">Q_</div><div class="google-review-author"><strong>qnoy _ot</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Mantapp pisan SPR audio patennn</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">AR</div><div class="google-review-author"><strong>ari ramdani</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Rekomendasi bagi yang cari profesional audio system</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">RP</div><div class="google-review-author"><strong>Rian Pascal</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Solusi untuk yang menginginkan sound system clarity</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">AS</div><div class="google-review-author"><strong>Andriansyah Saputra</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Solusi untuk mencari kualitas audio profesional</p></article></div></div>
+<div class="reviews-marquee reverse" aria-label="Ulasan pelanggan SPR Audio"><div class="reviews-track" id="reviewsTrackBottom"><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">KW</div><div class="google-review-author"><strong>KANG Wilda BRIP</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Mantaps Solusi Audio Terbaik Di Sukabumi</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">RM</div><div class="google-review-author"><strong>Rislan Maulana</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Rekomendasi bgt pokoknya</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">MN</div><div class="google-review-author"><strong>M.nurussobah Nurssobah</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Ter rekomendasi sangat layak</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">HA</div><div class="google-review-author"><strong>Haykal Agfari</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Mantap terimakasih spr audio</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">FG</div><div class="google-review-author"><strong>Farrah Gaisa</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">bagus👍🏻👍🏻👍🏻</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">TH</div><div class="google-review-author"><strong>Tatus Hilmi (Tatus)</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">best pokoknya mah, terbaik</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">MA</div><div class="google-review-author"><strong>M. Abdurohman</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Sistem pendeteksi berfungsi dengan baik 🤟🏿</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">AA</div><div class="google-review-author"><strong>Abdul Aziz Sibungsu</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Direkomendasikan</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">RA</div><div class="google-review-author"><strong>Ramdhan Adan</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Tampan, berpenampilan baik, dan anggaran yang sesuai...</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">AS</div><div class="google-review-author"><strong>ahmd syhb</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">tetaplah kuat</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">MI</div><div class="google-review-author"><strong>muhammad ihsan</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">sangat bagus recomended untuk semuanya acara</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">NR</div><div class="google-review-author"><strong>Najwa Rahayu</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">sound systemnya the best,bagus buat segala acara,kemarin juga acara akt jadi baguss karna ini 💕💕💕💕</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">MA</div><div class="google-review-author"><strong>Malla Adhari531</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Sound nyaaaa bagussss , egk ada suara melengking yg gk enakk di dengar di kuping.. 👍🏻</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">FM</div><div class="google-review-author"><strong>Ferry muhammad setiawan</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Mantap dari pagi sampe sore crew nya sabar nunggu sampe acaranya selesai acaranya, harga terjangkau</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">FY</div><div class="google-review-author"><strong>Fajriyah Yasmin</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Solusi sound sistem terbaik budget terjangkau sesukabumi si menurut aku soalnya berani compare sama brand lain di kelasnya btw buat paket wedding juga ada yah recomendasi banget pokonya</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">AO</div><div class="google-review-author"><strong>AL-FARUQI OFFICIAL</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Soundnya enak. Rekomendasi buat acara2 sekolah...</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">KW</div><div class="google-review-author"><strong>KANG Wilda BRIP</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Mantaps Solusi Audio Terbaik Di Sukabumi</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">RM</div><div class="google-review-author"><strong>Rislan Maulana</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Rekomendasi bgt pokoknya</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">MN</div><div class="google-review-author"><strong>M.nurussobah Nurssobah</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Ter rekomendasi sangat layak</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">HA</div><div class="google-review-author"><strong>Haykal Agfari</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Mantap terimakasih spr audio</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">FG</div><div class="google-review-author"><strong>Farrah Gaisa</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">bagus👍🏻👍🏻👍🏻</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">TH</div><div class="google-review-author"><strong>Tatus Hilmi (Tatus)</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">best pokoknya mah, terbaik</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">MA</div><div class="google-review-author"><strong>M. Abdurohman</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Sistem pendeteksi berfungsi dengan baik 🤟🏿</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">AA</div><div class="google-review-author"><strong>Abdul Aziz Sibungsu</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Direkomendasikan</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">RA</div><div class="google-review-author"><strong>Ramdhan Adan</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Tampan, berpenampilan baik, dan anggaran yang sesuai...</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">AS</div><div class="google-review-author"><strong>ahmd syhb</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">tetaplah kuat</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">MI</div><div class="google-review-author"><strong>muhammad ihsan</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">sangat bagus recomended untuk semuanya acara</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">NR</div><div class="google-review-author"><strong>Najwa Rahayu</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">sound systemnya the best,bagus buat segala acara,kemarin juga acara akt jadi baguss karna ini 💕💕💕💕</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">MA</div><div class="google-review-author"><strong>Malla Adhari531</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Sound nyaaaa bagussss , egk ada suara melengking yg gk enakk di dengar di kuping.. 👍🏻</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">FM</div><div class="google-review-author"><strong>Ferry muhammad setiawan</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Mantap dari pagi sampe sore crew nya sabar nunggu sampe acaranya selesai acaranya, harga terjangkau</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">FY</div><div class="google-review-author"><strong>Fajriyah Yasmin</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Solusi sound sistem terbaik budget terjangkau sesukabumi si menurut aku soalnya berani compare sama brand lain di kelasnya btw buat paket wedding juga ada yah recomendasi banget pokonya</p></article><article class="google-review-card"><div class="google-review-top"><div class="google-review-avatar">AO</div><div class="google-review-author"><strong>AL-FARUQI OFFICIAL</strong><span class="google-review-date">Google Review</span></div><div class="google-review-stars" aria-label="5 dari 5 bintang">★★★★★</div></div><p class="google-review-text">Soundnya enak. Rekomendasi buat acara2 sekolah...</p></article></div></div>
+    </div>
+
+    <div class="google-reviews-status" id="googleReviewsStatus">32 ulasan dimuat • 12 ulasan lainnya akan ditambahkan</div>
+</section>
+
 <!-- ================= FOOTER ================= -->
 <footer id="footer">
     <div>
@@ -2112,8 +2202,8 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
         <a href="#paket">Paket Sewa</a>
         <a href="#portfolio">Portofolio</a>
         <a href="#kalkulator">Kalkulator</a>
+        <a href="#ulasan">Ulasan</a>
         <a href="#lokasi">Lokasi</a>
-        <a href="#mitra">Mitra Kami</a>
     </div>
 </footer>
 
@@ -2491,29 +2581,8 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
         const item = el.parentElement;
         item.classList.toggle('active');
     }
-
-    // Mitra Compact Section logic
-    function toggleMitraDetails() {
-        const content = document.getElementById('mitraExpandedContent');
-        const btn = document.getElementById('btnMitraToggle');
-        const isOpen = content.classList.contains('open');
-        
-        if (isOpen) {
-            content.classList.remove('open');
-            btn.innerText = "LIHAT PELUANG MITRA →";
-        } else {
-            content.classList.add('open');
-            btn.innerText = "TUTUP PELUANG MITRA ↑";
-            // Scroll smooth sedikit ke konten bawah bila terbuka
-            setTimeout(() => {
-                const yOffset = -100; 
-                const y = content.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                window.scrollTo({top: y, behavior: 'smooth'});
-            }, 300);
-        }
-    }
-
-    // Audio Player
+    // SPR Audio: 32 owner-supplied Google reviews embedded locally.
+// Audio Player
     const playBtn = document.getElementById('playBtn');
     const bars = document.querySelectorAll('.bar');
     let isPlaying = false;
