@@ -1696,6 +1696,20 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
   .spr-portfolio-preview-right{transform:translateX(-18px) rotateY(-6deg) scale(.79)}
 }
 @media(max-width:700px){.spr-portfolio-section .spr-portfolio-play{width:64px;height:64px}.spr-portfolio-section .spr-portfolio-play svg{width:24px;height:24px}}
+
+/* ================= BOOKING TERMS CONSENT ================= */
+.spr-booking-consent{margin:16px 0;padding:15px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025);}
+.spr-booking-consent-label{display:flex;align-items:flex-start;gap:11px;cursor:pointer;color:#c5c9ce;font-size:12px;line-height:1.65;}
+.spr-booking-consent-label input[type="checkbox"]{appearance:none;-webkit-appearance:none;width:18px;height:18px;min-width:18px;margin:2px 0 0;border:1px solid #68717a;border-radius:5px;background:#080a0d;display:grid;place-items:center;cursor:pointer;}
+.spr-booking-consent-label input[type="checkbox"]:checked{background:var(--accent);border-color:var(--accent);}
+.spr-booking-consent-label input[type="checkbox"]:checked::after{content:"✓";color:#08090b;font-size:12px;font-weight:900;}
+.spr-booking-consent-label input[type="checkbox"]:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.spr-booking-consent-label a,.spr-booking-consent-guide a{color:var(--accent2);font-weight:700;text-decoration:underline;text-underline-offset:2px;}
+.spr-booking-consent-guide{margin:9px 0 0 29px;color:#777f88;font-size:11px;line-height:1.6;}
+.spr-booking-consent-version{margin:7px 0 0 29px;color:#555d65;font-size:10px;}
+.spr-booking-consent-version strong{color:#737b84;}
+#sprBookingSubmit:disabled{opacity:.4;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
+@media(max-width:600px){html,body{max-width:100%;overflow-x:hidden;}footer{width:100%;max-width:100%;overflow:hidden;}footer a{max-width:100%;min-width:0;white-space:normal;overflow-wrap:anywhere;word-break:break-word;}footer a[href="ketentuan.html"]{display:inline-block;max-width:100%;white-space:normal;}.spr-booking-consent{padding:13px;}.spr-booking-consent-label{font-size:11.5px;}.spr-booking-consent-guide{font-size:10.5px;}}
 </style>
 </head>
 
@@ -2232,7 +2246,15 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
                 <div class="bs-row dp-row"><span>DP Booking (50%):</span><span id="sumDP">-</span></div>
             </div>
 
-            <button type="submit" class="submit-btn">Kirim & Pesan via WhatsApp</button>
+            <div class="spr-booking-consent">
+    <label class="spr-booking-consent-label" for="sprTermsConsent">
+        <input type="checkbox" id="sprTermsConsent" required aria-describedby="sprTermsDescription">
+        <span id="sprTermsDescription">Saya telah membaca, memahami, dan menyetujui <a href="ketentuan.html" target="_blank" rel="noopener noreferrer">Syarat &amp; Ketentuan SPR Audio</a>.</span>
+    </label>
+    <div class="spr-booking-consent-guide">Silakan baca ketentuan lengkap sebelum menyetujui: <a href="ketentuan.html" target="_blank" rel="noopener noreferrer">Baca Ketentuan Lengkap →</a></div>
+    <div class="spr-booking-consent-version">Versi ketentuan: <strong>SPR-TNC-2026.08</strong></div>
+</div>
+<button type="submit" class="submit-btn" id="sprBookingSubmit" disabled aria-disabled="true">Kirim &amp; Pesan via WhatsApp</button>
         </form>
     </div>
 </div>
@@ -2278,6 +2300,7 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
         <a href="#ulasan">Ulasan</a>
         <a href="#lokasi">Lokasi</a>
     </div>
+<a href="ketentuan.html" target="_blank" rel="noopener noreferrer">Ketentuan &amp; Kebijakan</a>
 </footer>
 
 <!-- ================= JAVASCRIPT ================= -->
@@ -2298,9 +2321,9 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
     // --- Data Paket Existing SPR Audio ---
     const packagesData = [
         { id: 1, badge: "Populer", name: "BASIC", price: 800000, spec: "1.000W Class", desc: "Cocok untuk intimate event, private party, dan seminar skala kecil.", equip: ["2x Top Speaker 15\"", "Mixer Digital 16 ch Behringer", "2x mic wireless", "Kabel Instalasi & Stand", "1x Sound Engineer"] },
-        { id: 2, badge: "Best Value", name: "STANDARD", price: 1300000, spec: "3.000W Class", desc: "Sistem menengah untuk wedding reguler, gathering, dan akustik.", equip: ["4x Top Speaker 15\"", "2x Subwoofer 18\"", "Mixer Digital 16 Ch Behringer", "2x Mic Wireless", "Kabel Instalasi & Stand", "1x Sound Engineer", "1x Teknisi Loading"] },
-        { id: 3, badge: "Pro Grade", name: "PRO", price: 2500000, spec: "5.000W Class", desc: "Suara bertenaga untuk outdoor wedding, live band, dan medium event.", equip: ["2x speaker double 15\" full range", "2x Subwoofer 18\"", "2x Speaker Monitor", "Mixer Digital 16 Ch Behringer", "2x Mic Wireless", "2x Speaker Monitor", "10x Kabel Mic", "1x Sound Engineer", "2x Teknisi Loading"] },
-        { id: 4, badge: "Massive", name: "EVENT", price: 5500000, spec: "10.000W Class", desc: "Skala besar untuk festival, konser musik lokal, atau open air event.", equip: ["8x Line Array Top", "6x Subwoofer 18\"", "4x Speaker Monitor", "Mixer Digital 32 Ch", "Full Mic Instrument Set", "Kabel Instalasi & Stand", "1x Sound Engineer", "3x Teknisi Loading"] }
+        { id: 2, badge: "Best Value", name: "STANDARD", price: 1800000, spec: "3.000W Class", desc: "Sistem menengah untuk wedding reguler, gathering, dan akustik.", equip: ["4x Top Speaker 15\"", "2x Subwoofer 18\"", "Mixer Digital 16 Ch Behringer", "2x Mic Wireless", "Kabel Instalasi & Stand", "1x Sound Engineer", "1x Teknisi Loading"] },
+        { id: 3, badge: "Pro Grade", name: "PRO", price: 3000000, spec: "5.000W Class", desc: "Suara bertenaga untuk outdoor wedding, live band, dan medium event.", equip: ["2x speaker double 15\" full range", "2x Subwoofer 18\"", "2x Speaker Monitor", "Mixer Digital 16 Ch Behringer", "2x Mic Wireless", "2x Speaker Monitor", "10x Kabel Mic", "1x Sound Engineer", "2x Teknisi Loading"] },
+        { id: 4, badge: "Massive", name: "EVENT", price: 6000000, spec: "10.000W Class", desc: "Skala besar untuk festival, konser musik lokal, atau open air event.", equip: ["8x Line Array Top", "6x Subwoofer 18\"", "4x Speaker Monitor", "Mixer Digital 32 Ch", "Full Mic Instrument Set", "Kabel Instalasi & Stand", "1x Sound Engineer", "3x Teknisi Loading"] }
     ];
 
     let currentPriceSewa = packagesData[0].price;
@@ -2584,6 +2607,13 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
 
     // Booking Flow
     function openBookingForm() {
+        const termsConsent = document.getElementById('sprTermsConsent');
+        const bookingSubmit = document.getElementById('sprBookingSubmit');
+        if (termsConsent && bookingSubmit) {
+            termsConsent.checked = false;
+            bookingSubmit.disabled = true;
+            bookingSubmit.setAttribute('aria-disabled','true');
+        }
         // Prepare Form Summary
         let km = parseFloat(document.getElementById('jarakKM').value) || 0;
         // Samakan logika biaya transport dengan kalkulator:
@@ -2601,6 +2631,14 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
     }
 
     function submitBooking(e) {
+        const termsConsent = document.getElementById('sprTermsConsent');
+        if (!termsConsent || !termsConsent.checked) {
+            showToast("Silakan baca dan setujui Syarat & Ketentuan terlebih dahulu.", "⚠️");
+            return;
+        }
+        const consentTime = new Date().toLocaleString('id-ID', {dateStyle:'full', timeStyle:'short'});
+        const termsUrl = new URL('ketentuan.html', window.location.href).href;
+
         e.preventDefault();
         
         // Validasi Custom Dropdown (karena input hidden tidak kena validasi HTML5 otomatis di browser)
@@ -2642,7 +2680,15 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
                     `*DP (50%): ${dp}*\n` +
                     `Sisa Pelunasan: ${sisa}\n\n` +
                     `Catatan: ${notes}\n\n` +
-                    `Mohon info ketersediaan tanggalnya. Terima kasih.`;
+                    `*PERSETUJUAN SYARAT & KETENTUAN*\n` +
+                    `Saya menyatakan telah membaca, memahami, dan menyetujui Syarat & Ketentuan SPR Audio versi SPR-TNC-2026.08.\n` +
+                    `Saya menyetujui detail pengajuan booking yang tercantum di atas.\n` +
+                    `Persetujuan diberikan melalui checkbox pada website.\n` +
+                    `Waktu persetujuan: ${consentTime}\n` +
+                    `Ketentuan lengkap: ${termsUrl}\n\n` +
+                    `*STATUS: PENGAJUAN BOOKING — MENUNGGU DP*\n` +
+                    `Saya memahami bahwa booking belum dikonfirmasi dan tanggal belum dianggap terkunci sebelum ketersediaan disetujui SPR Audio serta DP diterima dan diverifikasi.\n\n` +
+                    `Mohon info ketersediaan tanggal dan instruksi pembayaran DP. Terima kasih.`;
 
         const encodedMsg = encodeURIComponent(msg);
         window.open(`https://wa.me/6285722718266?text=${encodedMsg}`, '_blank');
@@ -2717,6 +2763,18 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
 
     // Setup & Init
     document.addEventListener("DOMContentLoaded", () => {
+        const sprTermsConsentInit = document.getElementById('sprTermsConsent');
+        const sprBookingSubmitInit = document.getElementById('sprBookingSubmit');
+        if (sprTermsConsentInit && sprBookingSubmitInit) {
+            const syncSprBookingConsent = () => {
+                const approved = sprTermsConsentInit.checked;
+                sprBookingSubmitInit.disabled = !approved;
+                sprBookingSubmitInit.setAttribute('aria-disabled', String(!approved));
+            };
+            sprTermsConsentInit.addEventListener('change', syncSprBookingConsent);
+            syncSprBookingConsent();
+        }
+
         renderPackages();
         
         // Scroll Reveal
