@@ -16,10 +16,10 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="SPR Audio | Sewa Sound System Profesional Sukabumi">
 <meta property="og:description" content="Sewa sound system profesional untuk berbagai acara di Sukabumi. Paket lengkap dengan kru, Sound Engineer, instalasi, dan estimasi biaya.">
-<meta property="og:image" content="https://spraudio.id/favicon.png">
-<meta name="twitter:image" content="https://spraudio.id/favicon.png">
 <meta property="og:locale" content="id_ID">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://spraudio.id/favicon.png">
+<meta name="twitter:image" content="https://spraudio.id/favicon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1728,37 +1728,39 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
     cursor: pointer;
 }
 
+</style>
 
-/* Mobile navigation: menu left, logo exactly centered, booking action right */
-.mobile-menu-toggle{display:none;width:38px;height:38px;flex:0 0 38px;padding:9px 7px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:rgba(255,255,255,.04);color:#fff;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;z-index:1002}
-.mobile-menu-toggle span{display:block;width:20px;height:2px;background:#fff;border-radius:2px}
+<style id="spr-mobile-navbar-alignment-fix">
+/* Perbaikan posisi navbar mobile: semua elemen tetap di tengah tinggi navbar */
+.mobile-menu-toggle{display:none;box-sizing:border-box;width:38px;height:38px;flex:0 0 38px;padding:8px 7px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:rgba(255,255,255,.04);color:#fff;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;z-index:1002;margin:0;align-self:center;line-height:1}
+.mobile-menu-toggle span{display:block;width:20px;height:2px;flex:0 0 2px;background:#fff;border-radius:2px;margin:0;padding:0}
 @media(max-width:900px){
- .navbar{height:72px;padding:0 14px;display:grid;grid-template-columns:minmax(38px,1fr) auto minmax(38px,1fr);column-gap:8px}
- .mobile-menu-toggle{display:flex;grid-column:1;grid-row:1;justify-self:start}
- .navbar .brand-logo{grid-column:2;grid-row:1;position:static;left:auto;transform:none;justify-self:center;max-width:100%;min-width:0}
- .navbar .brand-logo img{width:clamp(92px,29vw,125px);max-width:100%}
- .navbar .nav-actions{grid-column:3;grid-row:1;justify-self:end;gap:0}
- .navbar .signin{display:none!important}
- .navbar .btn-small{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;padding:10px 11px;font-size:11px;border-radius:9px}
- .navbar .nav-links{display:none!important}
- .navbar .nav-links.mobile-open{display:flex!important;position:fixed;top:72px;left:12px;right:12px;z-index:1001;flex-direction:column;gap:0;padding:9px;border:1px solid rgba(255,255,255,.12);border-radius:15px;background:rgba(13,15,18,.98);box-shadow:0 18px 45px rgba(0,0,0,.45);backdrop-filter:blur(18px)}
- .navbar .nav-links.mobile-open a{display:block;padding:13px 14px;border-radius:9px;font-size:14px;color:#f4f5f7}
- .navbar .nav-links.mobile-open a+a{border-top:1px solid rgba(255,255,255,.06)}
- footer{padding:25px 5vw;gap:18px;align-items:stretch}
- footer>div:first-child{min-width:0;line-height:1.6}
- footer .op-hours{font-size:12px;line-height:1.55;overflow-wrap:break-word}
- .footer-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px;width:100%}
- .footer-links a{font-size:12px;line-height:1.45;min-width:0;overflow-wrap:break-word;word-break:normal}
- .footer-links a[href="ketentuan.html"]{grid-column:1/-1}
+  .navbar{height:72px!important;min-height:72px;box-sizing:border-box;padding:0 14px!important;display:grid!important;grid-template-columns:minmax(38px,1fr) auto minmax(38px,1fr)!important;column-gap:8px;align-items:center!important;justify-content:initial!important;}
+  .navbar .mobile-menu-toggle{display:flex!important;grid-column:1;grid-row:1;justify-self:start;align-self:center;position:relative;top:0;transform:none;}
+  .navbar .brand-logo{grid-column:2;grid-row:1;justify-self:center;align-self:center;position:static!important;left:auto!important;top:auto!important;transform:none!important;margin:0!important;padding:0;min-width:0;max-width:100%;line-height:0;display:flex;align-items:center;}
+  .navbar .brand-logo img{display:block;width:clamp(92px,29vw,125px);height:auto;max-height:44px;object-fit:contain;margin:0;}
+  .navbar .nav-actions{grid-column:3;grid-row:1;justify-self:end;align-self:center;display:flex;align-items:center;gap:0;margin:0;min-width:0;}
+  .navbar .signin{display:none!important;}
+  .navbar .nav-actions .btn-small{display:inline-flex;align-items:center;justify-content:center;align-self:center;box-sizing:border-box;white-space:nowrap;margin:0;padding:10px 11px;font-size:11px;line-height:1.2;border-radius:9px;position:static;transform:none;}
+  .navbar .nav-links{display:none!important;}
+  .navbar .nav-links.mobile-open{display:flex!important;position:fixed!important;top:72px!important;left:12px;right:12px;z-index:1001;flex-direction:column;gap:0;padding:9px;border:1px solid rgba(255,255,255,.12);border-radius:15px;background:rgba(13,15,18,.98);box-shadow:0 18px 45px rgba(0,0,0,.45);backdrop-filter:blur(18px);}
+  .navbar .nav-links.mobile-open a{display:block;padding:13px 14px;border-radius:9px;font-size:14px;line-height:1.4;color:#f4f5f7;}
+  .navbar .nav-links.mobile-open a+a{border-top:1px solid rgba(255,255,255,.06);}
+  footer{padding:25px 5vw;gap:18px;align-items:stretch;}
+  footer>div:first-child{min-width:0;line-height:1.6;}
+  footer .op-hours{font-size:12px;line-height:1.55;overflow-wrap:break-word;}
+  .footer-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px;width:100%;}
+  .footer-links a{font-size:12px;line-height:1.45;min-width:0;overflow-wrap:break-word;word-break:normal;}
+  .footer-links a[href="ketentuan.html"]{grid-column:1/-1;}
 }
 @media(max-width:360px){
- .navbar{padding:0 10px;column-gap:5px}
- .navbar .btn-small{padding:9px 8px;font-size:10px}
- .navbar .brand-logo img{width:90px}
- .footer-links{column-gap:10px}
+  .navbar{padding:0 10px!important;column-gap:5px;}
+  .navbar .nav-actions .btn-small{padding:9px 8px;font-size:10px;}
+  .navbar .brand-logo img{width:90px;}
+  .footer-links{column-gap:10px;}
 }
-
 </style>
+
 </head>
 
 <body>
@@ -2354,28 +2356,29 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
     </div>
 </footer>
 
+<!-- ================= JAVASCRIPT ================= -->
 
-<!-- Mobile navigation toggle -->
-<script>
+<script id="spr-mobile-navbar-menu-script">
 function toggleSprMobileMenu(){
- const menu=document.getElementById('sprMobileNav');
- const button=document.querySelector('.mobile-menu-toggle');
- if(!menu||!button)return;
- const open=!menu.classList.contains('mobile-open');
- menu.classList.toggle('mobile-open',open);
- button.setAttribute('aria-expanded',String(open));
- button.setAttribute('aria-label',open?'Tutup menu navigasi':'Buka menu navigasi');
+  const menu=document.getElementById('sprMobileNav');
+  const toggle=document.querySelector('.mobile-menu-toggle');
+  if(!menu||!toggle)return;
+  const open=menu.classList.toggle('mobile-open');
+  toggle.setAttribute('aria-expanded',String(open));
 }
-document.addEventListener('DOMContentLoaded',function(){
- const menu=document.getElementById('sprMobileNav');
- const button=document.querySelector('.mobile-menu-toggle');
- if(!menu||!button)return;
- menu.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){menu.classList.remove('mobile-open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Buka menu navigasi');});});
- document.addEventListener('click',function(event){if(!menu.contains(event.target)&&!button.contains(event.target)){menu.classList.remove('mobile-open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Buka menu navigasi');}});
+document.addEventListener('click',function(event){
+  const menu=document.getElementById('sprMobileNav');
+  const toggle=document.querySelector('.mobile-menu-toggle');
+  if(!menu||!toggle)return;
+  if(menu.classList.contains('mobile-open')&&!menu.contains(event.target)&&!toggle.contains(event.target)){
+    menu.classList.remove('mobile-open');toggle.setAttribute('aria-expanded','false');
+  }
+  if(menu.contains(event.target)&&event.target.closest('a')){
+    menu.classList.remove('mobile-open');toggle.setAttribute('aria-expanded','false');
+  }
 });
 </script>
 
-<!-- ================= JAVASCRIPT ================= -->
 <script>
     /* ================= HERO IMAGE CONFIG =================
        Upload JPG pribadi ke: assets/images/hero.jpg
