@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
 
 <title>SPR Audio | Sewa Sound System Profesional Sukabumi untuk Berbagai Acara</title>
 <meta name="description" content="SPR Audio menyediakan sewa sound system profesional di Sukabumi untuk pernikahan, hajatan, pengajian, konser, acara sekolah, komunitas, dan acara perusahaan. Tersedia paket lengkap, kru, Sound Engineer, instalasi, dan estimasi biaya. Melayani Sukabumi dan berbagai wilayah di Indonesia.">
@@ -1710,6 +1712,20 @@ footer .op-hours{ display:block; margin-top:4px; opacity:.75; font-size:11px; }
 .spr-booking-consent-version strong{color:#737b84;}
 #sprBookingSubmit:disabled{opacity:.4;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
 @media(max-width:600px){html,body{max-width:100%;overflow-x:hidden;}footer{width:100%;max-width:100%;overflow:hidden;}footer a{max-width:100%;min-width:0;white-space:normal;overflow-wrap:anywhere;word-break:break-word;}footer a[href="ketentuan.html"]{display:inline-block;max-width:100%;white-space:normal;}.spr-booking-consent{padding:13px;}.spr-booking-consent-label{font-size:11.5px;}.spr-booking-consent-guide{font-size:10.5px;}}
+
+/* FIX IKON KALENDER BOOKING: pastikan indikator terlihat putih */
+#bookDate {
+    color: #ffffff !important;
+    color-scheme: dark !important;
+    background-color: #111419;
+}
+#bookDate::-webkit-calendar-picker-indicator {
+    opacity: 1 !important;
+    filter: brightness(0) invert(1) !important;
+    -webkit-filter: brightness(0) invert(1) !important;
+    cursor: pointer;
+}
+
 </style>
 </head>
 
